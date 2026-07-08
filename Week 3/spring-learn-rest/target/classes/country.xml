@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util
+		https://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- Single India bean - used by GET /country (REST - Country Web Service) -->
+	<bean id="country" class="com.cognizant.springlearn.model.Country">
+		<property name="code" value="IN" />
+		<property name="name" value="India" />
+	</bean>
+
+	<!-- Individual country beans -->
+	<bean id="countryUS" class="com.cognizant.springlearn.model.Country">
+		<property name="code" value="US" />
+		<property name="name" value="United States" />
+	</bean>
+
+	<bean id="countryDE" class="com.cognizant.springlearn.model.Country">
+		<property name="code" value="DE" />
+		<property name="name" value="Germany" />
+	</bean>
+
+	<bean id="countryIN" class="com.cognizant.springlearn.model.Country">
+		<property name="code" value="IN" />
+		<property name="name" value="India" />
+	</bean>
+
+	<bean id="countryJP" class="com.cognizant.springlearn.model.Country">
+		<property name="code" value="JP" />
+		<property name="name" value="Japan" />
+	</bean>
+
+	<!-- Country list - used by GET /countries/{code} (REST - Get country based on country code) -->
+	<util:list id="countryList" list-class="java.util.ArrayList">
+		<ref bean="countryUS" />
+		<ref bean="countryDE" />
+		<ref bean="countryIN" />
+		<ref bean="countryJP" />
+	</util:list>
+
+</beans>
